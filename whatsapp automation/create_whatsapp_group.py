@@ -27,8 +27,10 @@ class CreateWhatsappGroup:
     def new_group_page(self, menu_button_xpath, new_group_button):
         menu_button = self.find_elem(menu_button_xpath)
         menu_button.click()
+        sleep(2)
         new_group_btn = self.find_elem(new_group_button)
         new_group_btn.click()
+        sleep(2)
 
     def create_group(self, fill_num_box_xpath, arrow_xpath, group_name_box_xpath, group_name, create_group):
         fill_box = self.find_elem(fill_num_box_xpath)
@@ -37,17 +39,20 @@ class CreateWhatsappGroup:
                 if num:
                     num = num.strip()
                     self.action.move_to_element(fill_box).click().send_keys(num).perform()
-                    sleep(3)
+                    sleep(4)
                     self.action.move_to_element(fill_box).send_keys(Keys.ENTER).perform()
+                    sleep(4)
                 else:
                     print("All number filled")
                     break
         
         arrow = self.find_elem(arrow_xpath)
         arrow.click()
+        sleep(3)
 
         group_name_box = self.find_elem(group_name_box_xpath)
         group_name_box.click()
+        sleep(4)
         group_name_box.send_keys(group_name)
         sleep(5)
 
